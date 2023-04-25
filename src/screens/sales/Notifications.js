@@ -47,9 +47,9 @@ const Notifications = (props) => {
         <View style={tw`bg-white rounded w-full mx-2 flex-row mb-0.5 p-2 py-4`} >
           <View style={tw`w-2/12 items-center`}>
             {item?.from?.profileImage != null ?
-              <Image source={{ uri: `${Api.imageUri}${item?.from?.profileImage}` }} style={tw`w-10 h-10 rounded-full	mt-1`} />
+              <Image source={{ uri: `${Api.imageUri}${item?.from?.profileImage}` }} style={tw`w-15 h-15 rounded-full	mt-1`} />
               :
-              <Image source={ImageIcons.man} style={tw`w-10 h-10 rounded-full	mt-1`} />
+              <Image source={ImageIcons.man} style={tw`w-15 h-15 rounded-full	mt-1`} />
             }
           </View>
           <View style={tw`flex-row items-center	w-10/12`}>

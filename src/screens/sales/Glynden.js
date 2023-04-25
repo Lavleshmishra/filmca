@@ -69,9 +69,9 @@ const Glynden = (props) => {
                     <View style={tw`flex-row-reverse w-12/12 items-center `}>
                         <View style={tw`  items-center rounded-full`}>
                             {item?.fromUser?.profileImage != null ?
-                                <Image source={{ uri: `${Api.imageUri}${item?.fromUser?.profileImage}` }} style={tw`w-10 h-10 rounded-full`} />
+                                <Image source={{ uri: `${Api.imageUri}${item?.fromUser?.profileImage}` }} style={tw`w-15 h-15 rounded-full`} />
                                 :
-                                <Image source={ImageIcons.man} style={tw`w-10 h-10 rounded-full	`} />
+                                <Image source={ImageIcons.man} style={tw`w-15 h-15 rounded-full	`} />
                             }
 
                         </View>
@@ -85,9 +85,9 @@ const Glynden = (props) => {
                     <View style={tw`flex-row items-center w-11/12 rounded-[3] `}>
                         <View style={tw` items-center rounded-full`}>
                             {item?.fromUser?.profileImage != null ?
-                                <Image source={{ uri: `${Api.imageUri}${item?.fromUser?.profileImage}` }} style={tw`w-10 h-10 rounded-full`} />
+                                <Image source={{ uri: `${Api.imageUri}${item?.fromUser?.profileImage}` }} style={tw`w-15 h-15 rounded-full`} />
                                 :
-                                <Image source={ImageIcons.man} style={tw`w-10 h-10 rounded-full`} />
+                                <Image source={ImageIcons.man} style={tw`w-15 h-15 rounded-full`} />
                             }
                             
                         </View>
@@ -112,9 +112,9 @@ const Glynden = (props) => {
                 </TouchableOpacity>
 
                 {profileImage != null ?
-                    <Image source={{ uri: `${Api.imageUri}${profileImage}` }} style={tw`w-10 h-10 rounded-full  mt-3`} />
+                    <Image source={{ uri: `${Api.imageUri}${profileImage}` }} style={tw`w-12 h-12 rounded-full  mt-3`} />
                     :
-                    <Image source={ImageIcons.man} style={tw`w-10 h-10 rounded-full mt-4`} />
+                    <Image source={ImageIcons.man} style={tw`w-12 h-12 rounded-full mt-3`} />
                   }
                 <Text style={tw`text-center py-5 text-bold mt-2 ml-3`}>{fromUserName}</Text>
             </View>

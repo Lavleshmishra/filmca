@@ -11,7 +11,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { Vendor, Ucsafe, Safeservice, Massagewomen, Massagemen, Hairwomen, Cleankitbath, Plumber, waterpurifier, Cleaning, Homerepair, Pestcontrol, Editprofile, Search, Help, Commentlist, EventScreen, Searchloc, Reportlisting, Eventdetail, Gysercondition, Profile, Washing, Water, Appliances, Aircondition, Waterpurifier, Likelist, Gyser, Matthew, Notifications, Cru, Camera, Viewall, Projects, Searchjobs, Lighting, Jobdetails1, Locator, Projectdetails,Newproject, Glynden, Messages, Glyndenprofile,Usersearch,Manageprofile } from '../container'
+import { Vendor, Ucsafe, Safeservice, Massagewomen, Massagemen, Hairwomen, Cleankitbath, Plumber, waterpurifier, Cleaning, Homerepair, Pestcontrol, Editprofile, Search, Help, Commentlist, EventScreen, Searchloc, Reportlisting, Eventdetail, Gysercondition, Profile, Washing, Water, Appliances, Aircondition, Waterpurifier, Likelist, Gyser, Matthew, Notifications, Connections, Cru, Camera, Viewall, Projects, Searchjobs, Lighting, Jobdetails1, Locator, Projectdetails, Newproject, Glynden, Messages, Glyndenprofile } from '../container'
 import { Colors, Fonts, ImageIcons, Api } from '../common';
 import { connect, useSelector } from 'react-redux';
 
@@ -48,7 +48,7 @@ const VendorStack = (props) => {
             ),
             headerTitle: "Social Feed",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#fff", shadowOpacity: 0 },
           })}
         />
@@ -73,7 +73,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: profilename?.getprofilelist?.fullName,
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -98,7 +98,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Notifications",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18},
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -123,7 +123,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Messages",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -148,7 +148,32 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "My Cru",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
+            headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
+          })}
+        />
+        <Stack.Screen
+          name="Connections"
+          component={Connections}
+          options={({ navigation }) => ({
+            headerRight: () => (
+              <View >
+                {profilename?.getprofilelist?.profileImage != null ?
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Matthew")}>
+                    <Image source={{ uri: `${Api.imageUri}${profilename?.getprofilelist?.profileImage}` }} style={{ width: 35, height: 35, right: 20, borderRadius: 100 }} />
+                  </TouchableOpacity>
+                  :
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Matthew")}>
+                    <Image source={ImageIcons.womanclap} style={{ width: 35, height: 35, right: 20, borderRadius: 100 }} />
+                  </TouchableOpacity>
+                }
+              </View>
+            ),
+            headerShown: true,
+            headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
+            headerTitle: "My Connections",
+            headerTitleAlign: "center",
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -173,7 +198,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Camera",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK, fontSize:18},
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -198,7 +223,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false} />,
             headerTitle: "View All",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -223,7 +248,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Projects",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -248,7 +273,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Step",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -273,7 +298,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Search Jobs",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -299,7 +324,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Search Jobs",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK, fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -324,7 +349,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Search Jobs",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -349,7 +374,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Locator",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK, fontSize:18},
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -374,7 +399,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false} />,
             headerTitle: "Project Details",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK, fontSize:18},
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -399,7 +424,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: profilename?.grtpostdetail?.fullName,
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK, fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -409,14 +434,14 @@ const VendorStack = (props) => {
           options={({ navigation }) => ({
             headerRight: () => (
               <View >
-                
+
               </View>
             ),
             headerShown: false,
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false} />,
             headerTitle: "",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,fontSize:18 },
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#dedede", shadowOpacity: 0 },
           })}
         />
@@ -467,44 +492,6 @@ const VendorStack = (props) => {
             headerStyle: { backgroundColor: "#dedede", elevation: 4, shadowOpacity: 0, },
           })}
         />
-        <Stack.Screen
-          name="Usersearch"
-          component={Usersearch}
-          options={({ navigation }) => ({
-             headerRight: () => (
-               <View style={{flexDirection:'row'}}>
-              {/* <Image source={ImageIcons.mor} style={{width:20,height:21,right:20}}  />
-              <Image source={ImageIcons.moreoption1} style={{width:22,height:20,right:10}}  />
-              <Image source={ImageIcons.threedot} style={{width:22,height:20,right:5}} /> */}
-              </View>
-            ),
-            headerShown: true,
-            headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
-            headerTitle: "Social Feed",
-            headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK, },
-            headerStyle: { backgroundColor: "#ffffff", elevation: 4, shadowOpacity: 0, },
-          })}
-        />
-         <Stack.Screen
-          name="Manageprofile"
-          component={Manageprofile}
-          options={({ navigation }) => ({
-             headerRight: () => (
-               <View style={{flexDirection:'row'}}>
-              {/* <Image source={ImageIcons.mor} style={{width:20,height:21,right:20}}  />
-              <Image source={ImageIcons.moreoption1} style={{width:22,height:20,right:10}}  />
-              <Image source={ImageIcons.threedot} style={{width:22,height:20,right:5}} /> */}
-              </View>
-            ),
-            headerShown: true,
-            headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
-            headerTitle: "Social Feed",
-            headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK, },
-            headerStyle: { backgroundColor: "#ffffff", elevation: 4, shadowOpacity: 0, },
-          })}
-        />
 
         <Stack.Screen
           name="EventScreen"
@@ -527,7 +514,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
             headerTitle: "Events",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK, fontSize:18},
+            headerTitleStyle: { color: Colors.BLACK, fontSize: 18 },
             headerStyle: { backgroundColor: "#FFFFFF", elevation: 4, shadowOpacity: 0, },
           })}
         />
@@ -553,7 +540,7 @@ const VendorStack = (props) => {
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false} />,
             headerTitle: "Event Detail",
             headerTitleAlign: "center",
-            headerTitleStyle: { color: Colors.BLACK,  },
+            headerTitleStyle: { color: Colors.BLACK, },
             headerStyle: { backgroundColor: "#fff", elevation: 4, shadowOpacity: 0, },
           })}
         />
@@ -577,7 +564,7 @@ const VendorStack = (props) => {
             ),
             headerShown: true,
             headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={false} />,
-            headerTitle: " Like",  
+            headerTitle: " Like",
             headerTitleAlign: "center",
             headerTitleStyle: { color: Colors.BLACK, },
             headerStyle: { backgroundColor: "#fff", elevation: 4, shadowOpacity: 0, },
@@ -984,7 +971,7 @@ const LeftMenuItem = ({ navigation, isMenu }) => {
       }}
       style={styles.leftButton}
     >
-      <Image source={isMenu ? ImageIcons.menuIcon : ImageIcons.backarrow} style={[styles.leftIcon, { tintColor: isMenu ? '#5fafcf' : '#5fafcf' },{width: isMenu ? wp('5%') : wp('3%')}]} />
+      <Image source={isMenu ? ImageIcons.menuIcon : ImageIcons.backarrow} style={[styles.leftIcon, { tintColor: isMenu ? '#5fafcf' : '#5fafcf' }, { width: isMenu ? wp('5%') : wp('3%') }]} />
     </TouchableOpacity>
   )
 }
@@ -1001,7 +988,7 @@ const LeftMenuItem1 = ({ navigation, isMenu }) => {
       }}
       style={styles.leftButton}
     >
-      <Image source={isMenu ? ImageIcons.menuIcon : ImageIcons.backarrow} style={[styles.leftIcon, { tintColor: isMenu ? Colors.BLACK : '#5fafcf' },{width: isMenu ? wp('5%') : wp('3%')}]} />
+      <Image source={isMenu ? ImageIcons.menuIcon : ImageIcons.backarrow} style={[styles.leftIcon, { tintColor: isMenu ? Colors.BLACK : '#5fafcf' }, { width: isMenu ? wp('5%') : wp('3%') }]} />
     </TouchableOpacity>
   )
 }
@@ -1014,7 +1001,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   leftIcon: {
-    
+
     height: wp('5%'),
     marginLeft: 15,
     tintColor: '#5fafcf'

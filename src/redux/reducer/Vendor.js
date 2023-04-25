@@ -35,7 +35,6 @@ import {
     GET_DELETE_USEREQUEST,
     GET_ALL_JOBS,
     SET_APPLY_PROJECT,
-    GET_USER_LISTING,
 } from '../actions/ActionTypes';
 
 // Redux states
@@ -71,9 +70,6 @@ const initialState = {
     getprojectdetilslist: [],
     getmessagedetilslist: [],
     getalljobprojectlist: [],
-    getallalluserlistinglist: [],
-    
-
 };
 
 const Vendor = (state = initialState, action) => {
@@ -230,12 +226,6 @@ const Vendor = (state = initialState, action) => {
             ...state,
             getalljobprojectlist: action.payload,
         };
-        case GET_USER_LISTING:
-        return {
-            ...state,
-            getallalluserlistinglist: action.payload,
-        };
-        
         case SET_APPLY_PROJECT:
         return {
             ...state,

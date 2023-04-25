@@ -23,7 +23,6 @@ import waterpurifier from './vender/waterpurifier';
 import Cleaning from './vender/Cleaning';
 import Homerepair from './vender/Homerepair';
 import Pestcontrol from './vender/Pestcontrol';
-import Usersearch from './sales/Usersearch';
 
 
 
@@ -41,6 +40,7 @@ import Commentlist from './sales/Commentlist';
 import Search from './sales/Search';
 import Matthew from './sales/Matthew';
 import Notifications from './sales/Notifications';
+import Connections from './sales/Connections';
 import Cru from './sales/Cru';
 import Camera from './sales/Camera';
 import Viewall from './sales/Viewall';
@@ -54,8 +54,6 @@ import Newproject from './sales/Newproject';
 import Glynden from './sales/Glynden';
 import Glyndenprofile from './sales/Glyndenprofile';
 import Messages from './sales/Messages';
-import Manageprofile from './sales/Manageprofile';
-
 
 
 
@@ -98,6 +96,7 @@ export {
     Pestcontrol,
     Matthew,
     Notifications,
+    Connections,
     Cru,
     Camera,
     Viewall,
@@ -111,6 +110,4 @@ export {
     Glyndenprofile,
     Messages,
     Newproject,
-    Usersearch,
-    Manageprofile
 }

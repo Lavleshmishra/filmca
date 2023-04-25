@@ -70,9 +70,13 @@ const Lighting = (props) => {
                             <Text style={tw`text-center text-black text-base font-bold `} >{moment(item?.toDate).format('D')}</Text>
 
                         </View>
-                        <View style={tw`border-l border-[#ccc] w-9/12  px-4 `}>
+                        <View style={tw`border-l border-[#ccc] w-4/12  px-4 `}>
                             <Text style={tw` text-black text-base font-bold `} >{item?.productionType?.title}</Text>
                             <Text style={tw`text-black text-[3.5] font-semibold  `} >{item.title}</Text>
+                        </View>
+                        <View style={tw` w-5/12  px-4 `}>
+                            <Text style={tw` text-black text-base font-bold `} >{item?.userId?.fullName}</Text>
+
                         </View>
                     </TouchableOpacity>
                 </View>
