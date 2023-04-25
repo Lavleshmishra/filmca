@@ -317,7 +317,7 @@ const CustomDrawerContent = ({ prop, rootProps, currentItem, onItemSelection }) 
               </View>
               <DrawerItem
                 key="Saleslisting"
-                label={({ focused, color }) => <DrawerItemLabel label='Job Match' />}
+                label={({ focused, color }) => <DrawerItemLabel label='Search Jobs' />}
                 style={{ opacity: 1, width: 100, }}
                 // icon={({ focused }) => <DrawerLeftIcon focused={currentItem === "Saleslisting" ? true : false} icon={ImageIcons.viewIcon
                 // } />}

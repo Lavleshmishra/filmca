@@ -33,11 +33,11 @@ const SalesStack = (props) => {
             headerRight: () => (
               <View >
                 {profilename?.getprofilelist?.profileImage != null ?
-                  <TouchableOpacity onPress={() => props.navigation.navigate("Matthew")}>
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Mathrew")}>
                     <Image source={{ uri: `${Api.imageUri}${profilename?.getprofilelist?.profileImage}` }} style={{ width: 35, height: 35, right: 20, borderRadius: 100 }} />
                   </TouchableOpacity>
                   :
-                  <TouchableOpacity onPress={() => props.navigation.navigate("Matthew")}>
+                  <TouchableOpacity onPress={() => props.navigation.navigate("Mathrew")}>
                     <Image source={ImageIcons.womanclap} style={{ width: 35, height: 35, right: 20, borderRadius: 100 }} />
                   </TouchableOpacity>
                 }

@@ -16,7 +16,7 @@ import { FlatListSlider } from 'react-native-flatlist-slider';
 import tw from 'twrnc';
 
 
-const Cru = (props) => {
+const Connections = (props) => {
     const {
         navigation,
         values,
@@ -56,14 +56,14 @@ const Cru = (props) => {
             <View style={tw`bg-[#fff] w-4/12 flex  justify-center`}>
                 {item?.user?.length > 0 ?
                     <TouchableOpacity style={tw`border  border-[#ccc]  items-center py-4 px-4`} onPress={() => props.navigation.navigate("Camera", { user: item })}>
-                        <Image source={{ uri: `${Api.imageUri}${item.image}` }} style={[tw`w-12 h-12 `, { tintColor: '#5fafcf' }]} />
-                        <Text style={tw`text-[#000] text-[3.5] text-center p-1 font-normal`}>{item.departmentName}</Text>
+                        <Image source={{ uri: `${Api.imageUri}${item.image}` }} style={[tw`w-9 h-9 `, { tintColor: '#5fafcf' }]} />
+                        <Text style={tw`text-[#000] text-[3.5] font-normal`}>{item.departmentName}</Text>
                         <Text style={tw`text-[#000] text-[3.5] text-center font-normal`}>{item?.user?.length}</Text>
                     </TouchableOpacity>
                     :
                     <TouchableOpacity style={tw`border  border-[#ccc]  items-center py-4 px-4`} >
-                        <Image source={{ uri: `${Api.imageUri}${item.image}` }} style={[tw`w-12 h-12 `, { tintColor: '#5fafcf' }]} />
-                        <Text style={tw`text-[#000] text-[3.5] text-center p-1 font-normal`}>{item.departmentName}</Text>
+                        <Image source={{ uri: `${Api.imageUri}${item.image}` }} style={[tw`w-9 h-9 `, { tintColor: '#5fafcf' }]} />
+                        <Text style={tw`text-[#000] text-[3.5] font-normal`}>{item.departmentName}</Text>
                         <Text style={tw`text-[#000] text-[3.5] text-center font-normal`}>{item?.user?.length}</Text>
                     </TouchableOpacity>
                 }
@@ -102,4 +102,4 @@ const Cru = (props) => {
     )
 }
 
-export default Cru;
+export default Connections;

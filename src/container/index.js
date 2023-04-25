@@ -23,6 +23,7 @@ import waterpurifier from './vender/waterpurifier';
 import Cleaning from './vender/Cleaning';
 import Homerepair from './vender/Homerepair';
 import Pestcontrol from './vender/Pestcontrol';
+import Usersearch from './sales/Usersearch';
 
 
 
@@ -53,6 +54,8 @@ import Newproject from './sales/Newproject';
 import Glynden from './sales/Glynden';
 import Glyndenprofile from './sales/Glyndenprofile';
 import Messages from './sales/Messages';
+import Manageprofile from './sales/Manageprofile';
+
 
 
 
@@ -108,4 +111,6 @@ export {
     Glyndenprofile,
     Messages,
     Newproject,
+    Usersearch,
+    Manageprofile
 }

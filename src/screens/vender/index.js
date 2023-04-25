@@ -16,6 +16,7 @@ import { SwipeablePanel } from 'rn-swipeable-panel';
 import { RadioButton, Provider, Portal, Button, } from 'react-native-paper';
 import Modal from 'react-native-modal'
 import { FlatListSlider } from 'react-native-flatlist-slider';
+import VideoPlayer from 'react-native-video-player';
 import tw from 'twrnc';
 
 
@@ -37,6 +38,7 @@ const Vendor = (props) => {
   const [likecount, setLikecount] = React.useState(1);
   const [msgcount, setMsgcount] = React.useState(1);
   const [billImgPath, setBillImgPath] = useState("");
+  const [search, setSearch] = React.useState('')
 
   useEffect(() => {
     setTimeout(function () {
@@ -51,7 +53,7 @@ const Vendor = (props) => {
       //setLikecount(item?.likedBy?.length)
     }, 1500);
   }, [])
-  
+
   const [panelProps, setPanelProps] = useState({
     fullWidth: true,
     openLarge: true,
@@ -90,8 +92,8 @@ const Vendor = (props) => {
   const selectPhoto = async () => {
     ImagePicker.openPicker({
       width: 400,
-      cropping: true,
-      mediaType: 'photo',
+      cropping: false,
+      mediaType: 'any',
       compressImageQuality: 0.5,
       height: 400,
     }).then(image => {
@@ -111,7 +113,7 @@ const Vendor = (props) => {
     });
   }
   const handlenewpost = async () => {
-    
+
     if (description == "") {
       alert('Description is required')
     } else {
@@ -120,6 +122,7 @@ const Vendor = (props) => {
       formData.append("description", description);
       formData.append("userId", loginId);
       formData.append("image", billImgPath);
+      console.log('tanuformData', formData)
       props.addpostnew(formData, props.navigation)
 
 
@@ -128,7 +131,7 @@ const Vendor = (props) => {
     setTimeout(function () {
       setBillImgPath('')
       props.socialfeedlist();
-    }, 1500);
+    }, 3000);
     setTimeout(function () {
       setVisible(false)
     }, 2000);
@@ -154,16 +157,33 @@ const Vendor = (props) => {
               <Image source={ImageIcons.timer} style={tw`w-5 h-5`} />
             </View>
           </View>
-          <View style={tw`my-2 bg-white pt-14 px-4 mx-5   rounded-[2]`}>
+          <View style={tw`my-2 bg-white pt-14 px-2 mx-5   rounded-[2] `}>
             <View style={tw`py-2 `}>
               <Text style={tw`text-[#000] text-[3.3] font-normal`}>{item.description}</Text>
+
               <View style={tw`pt-4`}>
                 {item?.image != "" &&
-                  <Image source={{ uri: `${Api.imageUri}${item.image}` }} style={tw`w-full h-90	`} />
+                  <View>
+                    {item?.image.endsWith(".mp4") ?
+                      <VideoPlayer
+                        video={{ uri: `${Api.imageUri}${item.image}` }}
+                        videoWidth={1600}
+                        videoHeight={900}
+
+                      />
+                      :
+                      // <View style={tw`border-2 border-[#ccc]`}>
+                      <Image source={{ uri: `${Api.imageUri}${item.image}` }} style={tw`w-full h-90]`} />
+                      // </View>
+                    }
+
+                  </View>
                 }
+
               </View>
             </View>
-            <View style={tw`flex-row justify-between 	items-center 	py-3`}>
+            <View style={tw`w-full h-0.2 bg-[#ccc] mt-2`}></View>
+            <View style={tw`flex-row justify-between 	items-center 	py-2`}>
               <View style={tw`flex-row items-center  w-6/12  `}>
 
                 {item?.likedBy?.includes(loginId) == "" ?
@@ -213,7 +233,7 @@ const Vendor = (props) => {
         </View>
         <View style={tw`absolute  inset-x-0.7/2	 top-8		 `}>
           {/* <View style={tw`w-3 h-3 bg-[#ff0000] rounded-full absolute left-15 `}></View> */}
-          
+
           {item?.userId?._id == loginId ?
             <TouchableOpacity onPress={() => props.navigation.navigate("Matthew", { userId: item?.userId?._id })}>
               {item?.userId?.profileImage != null ?
@@ -242,43 +262,63 @@ const Vendor = (props) => {
     <KeyboardAvoidingView behavior={Platform.OS === "ios" && "padding"} style={styles.root}>
       <ScrollView style={{ paddingBottom: 0, marginTop: 0 }}>
         <View >
-          <View style={tw`bg-white m-4 rounded-[2] p-3 px-5 h-38`}>
-            <View style={tw`border-b border-[#ccc] pl-5`}>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Usersearch")}>
+            <View style={tw`mt-3 flex flex-row w-11/12 mx-auto`}>
+              <View style={tw`w-1.5/12 bg-white rounded-l-[2]`}>
+                <Image source={ImageIcons.search} style={tw` w-6 h-6 mx-auto my-auto`} />
+              </View>
 
-              <TextInput
-                value={description}
-                placeholder="Share work related content here..."
-                placeholderTextColor={'#D3D3D3'}
-                style={tw`text-black`}
-                onChangeText={(text) => setDescription(text)}
-                onSubmitEditing={() => handlenewpost()}
-              />
+              <View style={tw`bg-white text-black	pl-2 h-11 w-11/12 mx-auto rounded-r-[2]`} >
 
+                <Text style={tw`my-auto`}>Search</Text>
+
+              </View>
+
+              {/* <TextInput
+                style={tw`bg-white text-black	pl-2 h-11 w-10.5/12 mx-auto rounded-r-[2]`}
+                placeholder="Search"
+                value={search}
+                onChangeText={(text) => setSearch(text)}
+                placeholderTextColor={'#ccc'}
+              /> */}
             </View>
-            <View style={tw`flex-row my-5 justify-center`}>
-              <TouchableOpacity onPress={() => selectPhoto()}>
-                {(billImgPath.uri!="" && billImgPath.uri!=undefined)?
-                  <Image source={{uri:billImgPath.uri}} style={tw`w-10 h-10`} />
-                :
-                <Image source={ImageIcons.camrea} style={tw`w-10 h-10`} />
-                }
-              </TouchableOpacity>
-              <View style={tw`mr-9 ml-3`}>
-                <TouchableOpacity onPress={() => handlenewpost()} style={tw`bg-[#fff] border-[#5fafcf] border-2	 items-center  justify-center rounded-[10] p-1 ml-4 h-12 w-45`}>
-                  <Text style={tw`text-[#000] text-[3.5]  px-10 font-normal`}>New Post</Text>
+            </TouchableOpacity>
+
+            <View style={tw`bg-white m-4 rounded-[2] p-3 px-5 h-38`}>
+              <View style={tw`border-b border-[#ccc] pl-5`}>
+                <TextInput
+                  value={description}
+                  placeholder="Share work related content here..."
+                  placeholderTextColor={'#D3D3D3'}
+                  style={tw`text-black`}
+                  onChangeText={(text) => setDescription(text)}
+                  onSubmitEditing={() => handlenewpost()}
+                />
+              </View>
+              <View style={tw`flex-row my-5 justify-center`}>
+                <TouchableOpacity onPress={() => selectPhoto()}>
+                  {(billImgPath.uri != "" && billImgPath.uri != undefined) ?
+                    <Image source={{ uri: billImgPath.uri }} style={tw`w-10 h-10`} />
+                    :
+                    <Image source={ImageIcons.camrea} style={tw`w-10 h-10`} />
+                  }
                 </TouchableOpacity>
+                <View style={tw`mr-9 ml-3`}>
+                  <TouchableOpacity onPress={() => handlenewpost()} style={tw`bg-[#fff] border-[#5fafcf] border-2	 items-center  justify-center rounded-[10] p-1 ml-4 h-12 w-45`}>
+                    <Text style={tw`text-[#000] text-[3.5]  px-10 font-normal`}>New Post</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
-          </View>
-          <View style={tw` `}>
-            <FlatList
-              data={props?.getpostlist}
-              renderItem={renderItem}
-              keyExtractor={item => item.id}
-              showsHorizontalScrollIndicator={false}
-              extraData={props}
-            />
-          </View>
+            <View style={tw` `}>
+              <FlatList
+                data={props?.getpostlist}
+                renderItem={renderItem}
+                keyExtractor={item => item.id}
+                showsHorizontalScrollIndicator={false}
+                extraData={props}
+              />
+            </View>
         </View>
       </ScrollView>
       {/* <Editprofile /> */}

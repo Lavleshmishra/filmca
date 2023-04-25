@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, KeyboardAvoidingView, View, TextInput, FlatList, StatusBar, TouchableOpacity, ScrollView, Image } from 'react-native';
-import { Fonts, Colors, ImageIcons,Api } from '../../common';
+import { Fonts, Colors, ImageIcons, Api } from '../../common';
 import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
@@ -29,13 +29,14 @@ const Viewall = (props) => {
 
     const [visible, setVisible] = React.useState(false);
     const [modalVisible, setModalVisible] = useState(false);
-    
+
     const handlestepSubmit = async () => {
         setModalVisible(!modalVisible)
+
     }
     const containerStyle = { backgroundColor: 'red', padding: '7%', marginHorizontal: '5%', alignItems: 'center', };
 
-    
+
 
     const renderItem = ({ item, index }) => {
         return (
@@ -44,9 +45,9 @@ const Viewall = (props) => {
                     <Text style={tw`text-center text-black text-xs font-semibold mt-1`} >{item.fullName}</Text>
 
                     {item?.profileImage != null ?
-                        <Image source={{ uri: `${Api.imageUri}${item?.profileImage}` }} style={tw`w-24 h-24 rounded-full	mt-1`} />
+                        <Image source={{ uri: `${Api.imageUri}${item?.profileImage}` }} style={tw`w-10 h-10 rounded-full	mt-1`} />
                         :
-                        <Image source={ImageIcons.man} style={tw`w-24 h-24 rounded-full	mt-1`} />
+                        <Image source={ImageIcons.man} style={tw`w-10 h-10 rounded-full	mt-1`} />
                     }
                     <Text style={tw`text-center text-black text-xs font-semibold mt-1`} >{item.workDepartments[0]?.position[0]?.name}</Text>
 
@@ -59,19 +60,19 @@ const Viewall = (props) => {
     return (
         <KeyboardAvoidingView behavior={Platform.OS === "ios" && "padding"} style={styles.root}>
             <ScrollView style={{ paddingBottom: 0, marginTop: 0 }}>
-               
-                    <View style={tw`w-full mx-3 mb-5`}>
-                        <FlatList
 
-                            data={cru_data}
-                            renderItem={renderItem}
-                            keyExtractor={item => item.id}
-                            showsHorizontalScrollIndicator={false}
-                            key={2}
-                            numColumns={2}
-                        />
-                    </View>
-               
+                <View style={tw`w-full mx-3 mb-5`}>
+                    <FlatList
+
+                        data={cru_data}
+                        renderItem={renderItem}
+                        keyExtractor={item => item.id}
+                        showsHorizontalScrollIndicator={false}
+                        key={2}
+                        numColumns={2}
+                    />
+                </View>
+
 
                 {/* <TouchableOpacity style={tw`bg-[#e6e6e6] border-[#5fafcf] border-2	 items-center  justify-center rounded-[10] p-1 my-5 mx-10`} onPress={() => handlestepSubmit()}  >
                     <Text style={tw`text-[#000] text-[3.5] p-3 px-15 font-normal`}>Step 2</Text>
@@ -108,16 +109,8 @@ const Viewall = (props) => {
                             </View>
 
                         </View>
-
                     </View>
-
                 </Modal>
-
-
-
-
-
-
             </ScrollView>
             {/* <Editprofile /> */}
             <Loader />

@@ -11,7 +11,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { Vendor, Ucsafe, Safeservice, Massagewomen, Massagemen, Hairwomen, Cleankitbath, Plumber, waterpurifier, Cleaning, Homerepair, Pestcontrol, Editprofile, Search, Help, Commentlist, EventScreen, Searchloc, Reportlisting, Eventdetail, Gysercondition, Profile, Washing, Water, Appliances, Aircondition, Waterpurifier, Likelist, Gyser, Matthew, Notifications, Cru, Camera, Viewall, Projects, Searchjobs, Lighting, Jobdetails1, Locator, Projectdetails,Newproject, Glynden, Messages, Glyndenprofile } from '../container'
+import { Vendor, Ucsafe, Safeservice, Massagewomen, Massagemen, Hairwomen, Cleankitbath, Plumber, waterpurifier, Cleaning, Homerepair, Pestcontrol, Editprofile, Search, Help, Commentlist, EventScreen, Searchloc, Reportlisting, Eventdetail, Gysercondition, Profile, Washing, Water, Appliances, Aircondition, Waterpurifier, Likelist, Gyser, Matthew, Notifications, Cru, Camera, Viewall, Projects, Searchjobs, Lighting, Jobdetails1, Locator, Projectdetails,Newproject, Glynden, Messages, Glyndenprofile,Usersearch,Manageprofile } from '../container'
 import { Colors, Fonts, ImageIcons, Api } from '../common';
 import { connect, useSelector } from 'react-redux';
 
@@ -465,6 +465,44 @@ const VendorStack = (props) => {
             //headerTitleAlign: "center",
             headerTitleStyle: { color: Colors.BLACK, },
             headerStyle: { backgroundColor: "#dedede", elevation: 4, shadowOpacity: 0, },
+          })}
+        />
+        <Stack.Screen
+          name="Usersearch"
+          component={Usersearch}
+          options={({ navigation }) => ({
+             headerRight: () => (
+               <View style={{flexDirection:'row'}}>
+              {/* <Image source={ImageIcons.mor} style={{width:20,height:21,right:20}}  />
+              <Image source={ImageIcons.moreoption1} style={{width:22,height:20,right:10}}  />
+              <Image source={ImageIcons.threedot} style={{width:22,height:20,right:5}} /> */}
+              </View>
+            ),
+            headerShown: true,
+            headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
+            headerTitle: "Social Feed",
+            headerTitleAlign: "center",
+            headerTitleStyle: { color: Colors.BLACK, },
+            headerStyle: { backgroundColor: "#ffffff", elevation: 4, shadowOpacity: 0, },
+          })}
+        />
+         <Stack.Screen
+          name="Manageprofile"
+          component={Manageprofile}
+          options={({ navigation }) => ({
+             headerRight: () => (
+               <View style={{flexDirection:'row'}}>
+              {/* <Image source={ImageIcons.mor} style={{width:20,height:21,right:20}}  />
+              <Image source={ImageIcons.moreoption1} style={{width:22,height:20,right:10}}  />
+              <Image source={ImageIcons.threedot} style={{width:22,height:20,right:5}} /> */}
+              </View>
+            ),
+            headerShown: true,
+            headerLeft: () => <LeftMenuItem navigation={navigation} isMenu={true} />,
+            headerTitle: "Social Feed",
+            headerTitleAlign: "center",
+            headerTitleStyle: { color: Colors.BLACK, },
+            headerStyle: { backgroundColor: "#ffffff", elevation: 4, shadowOpacity: 0, },
           })}
         />
 

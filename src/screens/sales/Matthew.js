@@ -61,7 +61,7 @@ const Matthew = (props) => {
 
   useEffect(() => {
     //alert(props?.getprofilelist.email)
-    if (props?.getprofilelist.email == undefined) {
+    if (props?.getprofilelist?.email == undefined) {
       props.profiledetail(loginId);
       setTimeout(function () {
         props.profiledetail(loginId);
@@ -288,7 +288,7 @@ const Matthew = (props) => {
   const renderItem1 = ({ item, index }) => {
     return (
       <View >
-        <TouchableOpacity style={tw`  border-solid rounded-full mx-2 bg-white`}>
+        <TouchableOpacity onPress={() => props.navigation.navigate("Manageprofile")} style={tw`  border-solid rounded-full mx-2 bg-white`}>
           <Text style={tw`text-center my-auto text-xs p-2 px-3`}>{item?.name}</Text>
         </TouchableOpacity>
       </View>
@@ -465,7 +465,7 @@ const Matthew = (props) => {
             </TouchableOpacity>
           </View>
           <View style={tw`ml-5 mt-5`}>
-            {(props?.getprofilelist.email != undefined && props?.getprofilelist.email != "") &&
+            {(props?.getprofilelist?.email != undefined && props?.getprofilelist?.email != "") &&
               <FlatList
                 horizontal={true}
                 data={props?.getprofilelist?.workDepartments[0]?.position}
