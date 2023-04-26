@@ -32,6 +32,7 @@ import {
   GET_DELETE_USEREQUEST,
   GET_ALL_JOBS,
   SET_APPLY_PROJECT,
+  GET_USER_LISTING
 } from './ActionTypes';
 import { Alert } from 'react-native';
 import { Api, Utilise } from '../../common';
@@ -125,7 +126,7 @@ export const addpostnew = (request, navigation) => {
     if (isInternetConnected) {
       try {
         let response = await Utilise.apiCalling('POST', Api.addnewpost, request);
-        console.log("requestaddpost==>", request)
+        console.log("requestaddpost==>", response)
         //alert("hello")
         Alert.alert("Filmca", "Save successfully")
         console.log('error',error);
@@ -146,7 +147,7 @@ export const socialfeedlist = () => {
         dispatch({ type: SET_LOGIN_LOADER, payload: true });
         //dispatch({ type: GET_POST_LIST, payload: true });
         let response = await Utilise.apiCalling('GET', `${Api.postlisting}`)
-        //console.log("postlisting_reponse", response)
+        console.log("postlisting_reponse", response.data.data)
         //dispatch({ type: GET_POST_LIST, payload: false });
         if (response?.status) {
           dispatch({ type: GET_POST_LIST, payload: response.data.data });
@@ -812,11 +813,34 @@ export const alljobproject = () => {
       try {
         dispatch({ type: GET_ALL_JOBS, payload: true });
         let response = await Utilise.apiCalling('GET', `${Api.allprojects}`)
-        console.log("alljobproject==>>>", response)
+        console.log("alluserlisting==>>>", response)
         dispatch({ type: GET_ALL_JOBS, payload: false });
         if (response?.status) {
 
           dispatch({ type: GET_ALL_JOBS, payload: response.data.data });
+
+        } else {
+          Alert.alert("Filmca", String(response?.message))
+        }
+      } catch (error) {
+        Alert.alert("Filmca", String(error?.message))
+      }
+    };
+  }
+};
+export const alluserlisting = () => {
+  return async (dispatch, getState) => {
+    let loginCredentials = await getState().auth?.loginCredentials;
+    let isInternetConnected = await getState().auth?.isInternetConnected;
+    if (isInternetConnected) {
+      try {
+        dispatch({ type: GET_USER_LISTING, payload: true });
+        let response = await Utilise.apiCalling('GET', `${Api.alluserlisting}`)
+        console.log("alljobproject==>>>", response)
+        dispatch({ type: GET_USER_LISTING, payload: false });
+        if (response?.status) {
+
+          dispatch({ type: GET_USER_LISTING, payload: response.data.allUser });
 
         } else {
           Alert.alert("Filmca", String(response?.message))

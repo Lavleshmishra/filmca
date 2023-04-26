@@ -51,8 +51,8 @@ const Glyndenprofile = (props) => {
 
       }, 1500);
     }
-    props.postdetails(user_Id);
-    console.log("props.grtpostdetail======>>>", props?.grtpostdetail.email);
+      props.postdetails(user_Id);
+      console.log("props.grtpostdetail======>>>", props?.grtpostdetail.email);
   }, [])
 
   const handlelikeunlike = (id) => {
@@ -65,7 +65,7 @@ const Glyndenprofile = (props) => {
     }
 
     props.likeunlikepost(request, props.navigation)
-
+    
     setTimeout(function () {
       props.postdetails(user_Id);
     }, 100);
@@ -76,7 +76,7 @@ const Glyndenprofile = (props) => {
   };
 
 
-
+  
   const handleMsgcount = () => {
     setMsgcount(msgcount + 1)
 
@@ -190,7 +190,7 @@ const Glyndenprofile = (props) => {
         {socilfeed == item.id ?
           <TouchableOpacity style={tw` bg-white ml-0.5 p-6 items-center	`} onPress={() => handletabchange(item.id)}>
 
-            <Image source={item.image2} style={tw`w-12 h-9  `} />
+            <Image source={item.image2} style={tw`w-9 h-9  `} />
             <Text style={tw`text-center text-black text-base font-semibold text-[3] `} >{item.text1}</Text>
           </TouchableOpacity>
           :
@@ -279,7 +279,7 @@ const Glyndenprofile = (props) => {
                 </TouchableOpacity>
               </View>
 
-
+              
 
             </View>
 
@@ -291,7 +291,7 @@ const Glyndenprofile = (props) => {
         </View>
         <View style={tw`absolute  inset-x-0.7/2	 top-8		 `}>
           {/* <View style={tw`w-3 h-3 bg-[#ff0000] rounded-full absolute left-15 `}></View> */}
-
+          
           {item?.userId?._id == loginId ?
             <TouchableOpacity onPress={() => props.navigation.navigate("Matthew", { userId: item?.userId?._id })}>
               {item?.userId?.profileImage != null ?
@@ -338,7 +338,7 @@ const Glyndenprofile = (props) => {
             </View>
             <View style={tw`w-11/12 mx-4 h-95 px-6 pt-68  bg-white  absolute overflow-hidden rounded-[2]	flex-row	justify-between `}>
               <TouchableOpacity style={tw`items-center	`} onPress={() => setModalVisible(!modalVisible)}>
-                <Image style={tw`w-11 h-9`} source={ImageIcons.msgs} />
+                <Image style={tw`w-9 h-9`} source={ImageIcons.msgs} />
                 <Text style={tw`text-black `}>Message</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => setConnectVisible(!connectVisible)}>
@@ -521,7 +521,7 @@ const Glyndenprofile = (props) => {
         </View>
       </ScrollView>
       {/* <Editprofile /> */}
-      <Loader isVisible={visible} />
+      <Loader isVisible={visible}/>
     </KeyboardAvoidingView>
   )
 }
