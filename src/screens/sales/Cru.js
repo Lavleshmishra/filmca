@@ -16,7 +16,7 @@ import { FlatListSlider } from 'react-native-flatlist-slider';
 import tw from 'twrnc';
 
 
-const Connections = (props) => {
+const Cru = (props) => {
     const {
         navigation,
         values,
@@ -102,4 +102,4 @@ const Connections = (props) => {
     )
 }
 
-export default Connections;
+export default Cru;

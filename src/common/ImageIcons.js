@@ -150,7 +150,7 @@ const profile = require(`${assetsRootPath}profile.png`);
 const grouprofile = require(`${assetsRootPath}grouprofile.png`);
 const socialcolor = require(`${assetsRootPath}socialcolor.png`);
 const redlike = require(`${assetsRootPath}redlike.png`);
-const my_cru = require(`${assetsRootPath}my_cru.png`);
+const crunew = require(`${assetsRootPath}crunew.png`);
 const about = require(`${assetsRootPath}about.png`);
 const users = require(`${assetsRootPath}users.png`);
 const cross_icon = require(`${assetsRootPath}cross_icon.png`);
@@ -170,7 +170,7 @@ const ImageIcons = {
   sliderimage1,
   shootingbackground,
   green_tik,
-  my_cru,
+  crunew,
   users,
   about,
   redlike,

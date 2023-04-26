@@ -41,7 +41,6 @@ const api = {
   invitecruproject: `/users/inviteCruForProject`,
   messagedetail: `/users/messageListDetail`,
   allprojects: `/users/allProjects`,
-  alluserlisting: `/users/userListing`,
   applyjobs: `/users/applyJob`,
   declineJobs: `/users/declineJob`,
   removeJobs:`/users/removeJobs`,
